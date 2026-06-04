@@ -1,1 +1,63 @@
+#include <stdio.h>
+#include <string.h>
 
+struct Karyawan {
+    char nama[50];
+    char gender;
+    int gaji;
+};
+
+// Selection Sort
+void selectionSort(struct Karyawan data[], int n) {
+    int i, j, min;
+    struct Karyawan temp;
+
+    for(i = 0; i < n - 1; i++) {
+        min = i;
+
+        for(j = i + 1; j < n; j++) {
+            if(data[j].gaji < data[min].gaji) {
+                min = j;
+            }
+        }
+
+        temp = data[i];
+        data[i] = data[min];
+        data[min] = temp;
+    }
+}
+
+// Linear Search berdasarkan nama
+int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
+    int i;
+
+    for(i = 0; i < n; i++) {
+        if(strcmp(data[i].nama, namaCari) == 0) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+// Binary Search berdasarkan gaji
+int binarySearch(struct Karyawan data[], int n, int target) {
+    int kiri = 0;
+    int kanan = n - 1;
+
+    while(kiri <= kanan) {
+        int tengah = (kiri + kanan) / 2;
+
+        if(data[tengah].gaji == target) {
+            return tengah;
+        }
+        else if(data[tengah].gaji < target) {
+            kiri = tengah + 1;
+        }
+        else {
+            kanan = tengah - 1;
+        }
+    }
+
+    return -1;
+}
