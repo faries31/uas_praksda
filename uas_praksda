@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// Definisi struktur data untuk menyimpan informasi karyawan
 struct Karyawan {
     char nama[50];
     char gender;
@@ -8,6 +9,7 @@ struct Karyawan {
 };
 
 // Selection Sort
+//Mengurutkan data karyawan berdasarkan 'gaji' secara ascending (dari kecil ke besar)
 void selectionSort(struct Karyawan data[], int n) {
     int i, j, min;
     struct Karyawan temp;
@@ -28,6 +30,8 @@ void selectionSort(struct Karyawan data[], int n) {
 }
 
 // Linear Search berdasarkan nama
+// Mencari data karyawan secara berurutan dari awal sampai akhir berdasarkan 'nama'
+// Mengembalikan indeks jika ketemu, atau -1 jika tidak ketemu
 int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
     int i;
 
@@ -41,6 +45,8 @@ int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
 }
 
 // Binary Search berdasarkan gaji
+// Mencari data karyawan berdasarkan 'gaji'. 
+// Hanya bekerja jika data sudah terurut (dalam program ini diurutkan oleh Selection Sort)
 int binarySearch(struct Karyawan data[], int n, int target) {
     int kiri = 0;
     int kanan = n - 1;
@@ -60,4 +66,3 @@ int binarySearch(struct Karyawan data[], int n, int target) {
     }
 
     return -1;
-}
