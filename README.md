@@ -118,7 +118,8 @@ int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
     }
     return -1; // Mengembalikan -1 jika tidak ketemu
 }
-📂Penjelasan Teknis:
+
+    📂Penjelasan Teknis:
     Logika Kerja: Program melakukan perulangan dari indeks 0 sampai indeks terakhir (n-1) untuk mencocokkan nama yang dicari dengan nama karyawan di dalam data satu per satu secara berurutan.
 
     strcmp(data[i].nama, namaCari) == 0: Fungsi bawaan dari library <string.h>. Jika kedua teks yang dibandingkan bernilai persis sama (identik), fungsi ini akan mengembalikan angka 0.
@@ -146,7 +147,8 @@ int binarySearch(struct Karyawan data[], int n, int target) {
     }
     return -1;
 }
-📂 Penjelasan Teknis:
+
+    📂 Penjelasan Teknis:
     Logika Kerja: Teknik pencarian efisien dengan cara membelah wilayah array menjadi dua bagian terus-menerus:
 
     Menghitung nilai titik tengah. Jika nilai di posisi tengah sama dengan target, pencarian selesai.
@@ -167,6 +169,7 @@ void tampilRupiah(int angka) {
     else
         printf("Rp%d", angka);
 }
+
     📂 Penjelasan Teknis:
     ogika Kerja: Fungsi pembantu (helper) untuk memformat angka mentah biasa (integer) agar tampil menjadi format akuntansi mata uang Rupiah yang mudah dibaca manusia.
 
