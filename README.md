@@ -50,6 +50,7 @@ Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.
 DATA KARYAWAN TERURUT 
 
 |No  | Nama      |   Gender  | Gaji        |
+
 |01  |  Siti     |  P        | Rp4.500.000 |    
 |02  |  Budi     |  L        |Rp5.000.000  |   
 ---
