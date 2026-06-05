@@ -236,3 +236,25 @@ int main() {
 
     int posisiGaji = binarySearch(data, n, gajiCari);
 
+// Memanggil fungsi binarySearch. Bisa digunakan karena data sudah diurutkan oleh Selection Sort sebelumnya
+    if(posisiGaji != -1) {
+
+        printf("\nData ditemukan:\n");
+
+        printf("Nama   : %s\n",
+            data[posisiGaji].nama);
+
+        printf("Gender : %c\n",
+            data[posisiGaji].gender);
+
+        printf("Gaji   : ");
+        tampilRupiah(data[posisiGaji].gaji);
+        printf("\n");
+    }
+    else {
+        printf("Data tidak ditemukan.\n");
+    }
+
+  
+    return 0;
+}
