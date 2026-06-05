@@ -24,17 +24,47 @@ $$
 \text{Kesenjangan (\%)} = \frac{\text{Rata-rata Gaji Tertinggi} - \text{Rata-rata Gaji Terendah}}{\text{Rata-rata Gaji Tertinggi}} \times 100\%
 $$
 
-> Penyebut selalu menggunakan **rata-rata gender yang lebih tinggi**, sehingga hasil persentase
-> merepresentasikan seberapa jauh gender dengan gaji lebih rendah tertinggal dari yang tertinggi.
-> 
-> // Jika rata-rata laki-laki lebih tinggi:
+> Penyebut selalu menggunakan **rata-rata gender yang lebih tinggi**, sehingga hasil persentase merepresentasikan seberapa jauh gender dengan gaji lebih rendah tertinggal dari yang tertinggi.
+
+---
+
+### 🧮 Contoh Perhitungan
+
+Misalkan terdapat data karyawan sebagai berikut:
+
+| No | Nama | Gender | Gaji |
+|----|------|--------|------|
+| 01 | Budi | L | Rp5.000.000 |
+| 02 | Andi | L | Rp6.000.000 |
+| 03 | Siti | P | Rp4.500.000 |
+| 04 | Rina | P | Rp4.000.000 |
+
+**Langkah 1 — Hitung rata-rata per gender:**
+
+$$\text{Rata-rata L} = \frac{5.000.000 + 6.000.000}{2} = \text{Rp5.500.000}$$
+
+$$\text{Rata-rata P} = \frac{4.500.000 + 4.000.000}{2} = \text{Rp4.250.000}$$
+
+**Langkah 2 — Hitung persentase kesenjangan:**
+
+$$\text{Kesenjangan} = \frac{5.500.000 - 4.250.000}{5.500.000} \times 100\% = \frac{1.250.000}{5.500.000} \times 100\% \approx 22{,}73\%$$
+
+**Langkah 3 — Kesimpulan:**
+
+> Perempuan menerima rata-rata **22,73% lebih rendah** dari laki-laki.
+>
+> ✅ **Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.**
+
+---
+### 📟 Implementasi dalam Kode (C)
+
+```c
+// Jika rata-rata laki-laki lebih tinggi:
 selisihPersen = ((rataL - rataP) / rataL) * 100;
 
 // Jika rata-rata perempuan lebih tinggi:
 selisihPersen = ((rataP - rataL) / rataP) * 100;
-
-
-
+```
 
 ## 🧠 Implementasi Struktur Data & Algoritma
 
@@ -46,40 +76,62 @@ Sebagai core dari praktikum Strukdat, aplikasi ini menerapkan 3 algoritma utama 
 | `linearSearch()` | **Searching** | Nama (`char[]`) | Mencari data karyawan berdasarkan nama dengan menelusuri array satu per satu (efektif untuk data tidak terurut). |
 | `binarySearch()` | **Searching** | Gaji (`int`) | Mencari data karyawan dengan membagi dua ruang pencarian secara efisien (bekerja setelah data diurutkan oleh Selection Sort). |
 
+
 ---
+
 ## 💻 Alur Tampilan Aplikasi (Preview)
 
+```
 Jumlah karyawan (maksimal 50): 3
 
 [Data Karyawan Ke-1]
-
 Nama         : Budi
-
 Gender (L/P) : L
-
 Gaji         : 5000000
 
+[Data Karyawan Ke-2]
+Nama         : Siti
+Gender (L/P) : P
+Gaji         : 4500000
 
+[Data Karyawan Ke-3]
+Nama         : Rina
+Gender (L/P) : P
+Gaji         : 4000000
 
 ======================= HASIL ANALISIS =======================
-* Rata-rata gaji laki-laki       : Rp5.000.000
-* Rata-rata gaji perempuan      : Rp4.500.000
-* Persentase kesenjangan gaji   : 10.00%
-
+* Rata-rata gaji laki-laki     : Rp5.000.000
+* Rata-rata gaji perempuan     : Rp4.250.000
+* Persentase kesenjangan gaji  : 15.00%
+Perempuan menerima rata-rata 15.00% lebih rendah dari laki-laki.
 Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.
 ==============================================================
 
-DATA KARYAWAN TERURUT
+=========================================
+       DATA KARYAWAN TERURUT
+=========================================
+No   Nama       Gender   Gaji
+-----------------------------------------
+01   Rina       P        Rp4.000.000
+02   Siti       P        Rp4.500.000
+03   Budi       L        Rp5.000.000
 
+Masukkan nama yang dicari: Siti
 
-| No | Nama   | Gender | Gaji         |
+Data ditemukan:
+Nama   : Siti
+Gender : P
+Gaji   : Rp4.500.000
 
-| 01 | Siti   |   P    | Rp4.500.000   |
+Masukkan gaji yang dicari: 5000000
 
-| 02 | Budi   |   L    | Rp5.000.000  |
+Data ditemukan:
+Nama   : Budi
+Gender : L
+Gaji   : Rp5.000.000
 
-
-
+---
+```
 
 ## 🔄 Alur Lengkap Jalannya Program Dan Penjelasan
 ```c
