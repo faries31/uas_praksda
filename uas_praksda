@@ -82,4 +82,32 @@ void tampilRupiah(int angka) {
         printf("Rp%d", angka);
 }
 
+int main() {
+    int n, i;
+    
+    // 1. input jumlah karyawan dan validasi
+    // Loop ini akan terus berjalan jika user memasukkan angka kurang dari 1 atau lebih dari 50
+    do {
+    printf("Jumlah karyawan (maksimal 50): ");
+    scanf("%d", &n);
+
+     if(n < 1 || n > 50) {
+        printf("Jumlah karyawan harus antara 1 sampai 50!\n");
+    }
+
+    } while(n < 1 || n > 50);
+    struct Karyawan data[50];
+
+    // Input Data karyawan
+    // Melakukan perulangan untuk mengambil input nama, gender, dan gaji sebanyak 'n' karyawan
+    for(i = 0; i < n; i++) {
+        printf("\nData Karyawan %d\n", i + 1);
+        printf("Nama   : ");
+        scanf("%s", data[i].nama);
+        printf("Gender (L/P): ");
+        scanf(" %c", &data[i].gender);
+        printf("Gaji   : ");
+        scanf("%d", &data[i].gaji);
+    }
+}    
 
