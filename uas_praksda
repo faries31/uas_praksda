@@ -83,14 +83,15 @@ int main() {
     // 1. input jumlah karyawan dan validasi
     // Loop ini akan terus berjalan jika user memasukkan angka kurang dari 1 atau lebih dari 50
     do {
-    printf("Jumlah karyawan (maksimal 50): ");
-    scanf("%d", &n);
+        printf("Jumlah karyawan (maksimal 50): ");
+        scanf("%d", &n);
 
-     if(n < 1 || n > 50) {
-        printf("Jumlah karyawan harus antara 1 sampai 50!\n");
-    }
+        if(n < 1 || n > 50) {
+            printf("Jumlah karyawan harus antara 1 sampai 50!\n");
+        }
 
     } while(n < 1 || n > 50);
+    
     struct Karyawan data[50];
 
     // Input Data karyawan
@@ -104,5 +105,125 @@ int main() {
         printf("Gaji   : ");
         scanf("%d", &data[i].gaji);
     }
-}  
 
+    // Analisis Gaji
+    int totalL = 0, totalP = 0;
+    int jumlahL = 0, jumlahP = 0;
+
+    // Menghitung total gaji dan jumlah karyawan untuk masing-masing gender
+    for(i = 0; i < n; i++) {
+
+        if(data[i].gender == 'L' || data[i].gender == 'l') {
+            totalL += data[i].gaji;
+            jumlahL++;
+        }
+        else if(data[i].gender == 'P' || data[i].gender == 'p') {
+            totalP += data[i].gaji;
+            jumlahP++;
+        }
+    }
+
+    float rataL = 0;
+    float rataP = 0;
+
+    // Menghitung rata-rata (menggunakan type casting (float) agar hasil pembagian akurat/desimal)
+    if(jumlahL > 0)
+        rataL = (float) totalL / jumlahL;
+
+    if(jumlahP > 0)
+        rataP = (float) totalP / jumlahP;
+
+    // Menampilkan hasil analisis dan membandingkan rata-rata gaji untuk kesimpulan
+    printf("\n===== HASIL ANALISIS =====\n");
+
+    printf("Rata-rata gaji laki-laki   : ");
+    tampilRupiah((int)rataL);
+    printf("\n");
+
+    printf("Rata-rata gaji perempuan   : ");
+    tampilRupiah((int)rataP);
+    printf("\n");
+
+    float selisihPersen = 0;
+
+    if(rataL > rataP && rataL != 0) {
+
+        selisihPersen = ((rataL - rataP) / rataL) * 100;
+
+        printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
+        printf("Perempuan menerima rata-rata %.2f%% lebih rendah dari laki-laki.\n",
+            selisihPersen);
+
+        printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
+    }
+    else if(rataP > rataL && rataP != 0) {
+
+        selisihPersen = ((rataP - rataL) / rataP) * 100;
+
+        printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
+        printf("Laki-laki menerima rata-rata %.2f%% lebih rendah dari perempuan.\n",
+            selisihPersen);
+
+        printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
+    }
+    else {
+
+        printf("Persentase kesenjangan gaji : 0.00%%\n");
+        printf("Tidak terdapat kesenjangan gaji antara laki-laki dan perempuan.\n");
+        printf("Kesimpulan: Sistem menunjukkan adanya kesetaraan gaji berdasarkan data yang dimasukkan.\n");
+    }
+
+    if(rataL > rataP)
+        printf("Kesimpulan: Rata-rata gaji laki-laki lebih tinggi.\n");
+    else if(rataP > rataL)
+        printf("Kesimpulan: Rata-rata gaji perempuan lebih tinggi.\n");
+    else
+        printf("Kesimpulan: Rata-rata gaji sama.\n");
+
+    // proses pengurutan data (sorting)
+    // Memanggil fungsi Selection Sort untuk mengurutkan data dari gaji terkecil ke terbesar
+    // proses pengurutan data (sorting)
+    selectionSort(data, n);
+    printf("\n=========================================\n");
+    printf("       DATA KARYAWAN TERURUT\n");
+    printf("=========================================\n");
+
+    printf("%-4s %-10s %-8s %s\n","No", "Nama", "Gender", "Gaji");
+
+     printf("-----------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+
+        printf("%-4d %-10s %-8c ",
+        i + 1,
+        data[i].nama,
+        data[i].gender);
+
+        tampilRupiah(data[i].gaji);
+        printf("\n");
+    }
+    // pencarian berdasarkan nama (Linear Search)
+    char namaCari[50];
+
+    printf("\nMasukkan nama yang dicari: ");
+    scanf("%s", namaCari);
+
+    int posisiNama = linearSearch(data, n, namaCari);
+
+    if(posisiNama != -1) {
+
+        printf("\nData ditemukan:\n");
+        printf("Nama   : %s\n",
+            data[posisiNama].nama);
+
+        printf("Gender : %c\n",
+            data[posisiNama].gender);
+
+        printf("Gaji   : ");
+        tampilRupiah(data[posisiNama].gaji);
+        printf("\n");
+    }
+    else {
+        printf("Data tidak ditemukan.\n");
+    }
+}
