@@ -66,3 +66,4 @@ int binarySearch(struct Karyawan data[], int n, int target) {
     }
 
     return -1;
+}
