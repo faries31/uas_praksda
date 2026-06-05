@@ -70,14 +70,9 @@ int binarySearch(struct Karyawan data[], int n, int target) {
 
 void tampilRupiah(int angka) {
     if (angka >= 1000000)
-        printf("Rp%d.%03d.%03d",
-               angka / 1000000,
-               (angka / 1000) % 1000,
-               angka % 1000);
+        printf("Rp%d.%03d.%03d", angka / 1000000, (angka / 1000) % 1000, angka % 1000);
     else if (angka >= 1000)
-        printf("Rp%d.%03d",
-               angka / 1000,
-               angka % 1000);
+        printf("Rp%d.%03d", angka / 1000, angka % 1000);
     else
         printf("Rp%d", angka);
 }
@@ -109,5 +104,5 @@ int main() {
         printf("Gaji   : ");
         scanf("%d", &data[i].gaji);
     }
-}    
+}  
 
