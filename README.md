@@ -35,9 +35,13 @@ Sebagai core dari praktikum Strukdat, aplikasi ini menerapkan 3 algoritma utama 
 Jumlah karyawan (maksimal 50): 3
 
 [Data Karyawan Ke-1]
+
 Nama         : Budi
+
 Gender (L/P) : L
+
 Gaji         : 5000000
+
 
 
 ======================= HASIL ANALISIS =======================
@@ -49,12 +53,16 @@ Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.
 ==============================================================
 
 DATA KARYAWAN TERURUT
++----+--------+--------+--------------+
+
+| No | Nama   | Gender | Gaji         |
 
 +----+--------+--------+--------------+
-| No | Nama   | Gender | Gaji         |
-+----+--------+--------+--------------+
+
 | 01 | Siti   |   P    | Rp4.500.000  |
+
 | 02 | Budi   |   L    | Rp5.000.000  |
+
 +----+--------+--------+--------------+
 
 
