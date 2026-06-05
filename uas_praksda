@@ -1,7 +1,7 @@
+
 #include <stdio.h>
 #include <string.h>
 
-// Definisi struktur data untuk menyimpan informasi karyawan
 struct Karyawan {
     char nama[50];
     char gender;
@@ -9,7 +9,6 @@ struct Karyawan {
 };
 
 // Selection Sort
-//Mengurutkan data karyawan berdasarkan 'gaji' secara ascending (dari kecil ke besar)
 void selectionSort(struct Karyawan data[], int n) {
     int i, j, min;
     struct Karyawan temp;
@@ -30,8 +29,6 @@ void selectionSort(struct Karyawan data[], int n) {
 }
 
 // Linear Search berdasarkan nama
-// Mencari data karyawan secara berurutan dari awal sampai akhir berdasarkan 'nama'
-// Mengembalikan indeks jika ketemu, atau -1 jika tidak ketemu
 int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
     int i;
 
@@ -45,8 +42,6 @@ int linearSearch(struct Karyawan data[], int n, char namaCari[]) {
 }
 
 // Binary Search berdasarkan gaji
-// Mencari data karyawan berdasarkan 'gaji'. 
-// Hanya bekerja jika data sudah terurut (dalam program ini diurutkan oleh Selection Sort)
 int binarySearch(struct Karyawan data[], int n, int target) {
     int kiri = 0;
     int kanan = n - 1;
@@ -70,38 +65,50 @@ int binarySearch(struct Karyawan data[], int n, int target) {
 
 void tampilRupiah(int angka) {
     if (angka >= 1000000)
-        printf("Rp%d.%03d.%03d", angka / 1000000, (angka / 1000) % 1000, angka % 1000);
+        printf("Rp%d.%03d.%03d",
+               angka / 1000000,
+               (angka / 1000) % 1000,
+               angka % 1000);
     else if (angka >= 1000)
-        printf("Rp%d.%03d", angka / 1000, angka % 1000);
+        printf("Rp%d.%03d",
+               angka / 1000,
+               angka % 1000);
     else
         printf("Rp%d", angka);
 }
 
+
 int main() {
+
     int n, i;
     
     // 1. input jumlah karyawan dan validasi
     // Loop ini akan terus berjalan jika user memasukkan angka kurang dari 1 atau lebih dari 50
     do {
-        printf("Jumlah karyawan (maksimal 50): ");
-        scanf("%d", &n);
 
-        if(n < 1 || n > 50) {
-            printf("Jumlah karyawan harus antara 1 sampai 50!\n");
-        }
+    printf("Jumlah karyawan (maksimal 50): ");
+    scanf("%d", &n);
 
+     if(n < 1 || n > 50) {
+        printf("Jumlah karyawan harus antara 1 sampai 50!\n");
+    }
+   
     } while(n < 1 || n > 50);
-    
+   
     struct Karyawan data[50];
 
     // Input Data karyawan
     // Melakukan perulangan untuk mengambil input nama, gender, dan gaji sebanyak 'n' karyawan
     for(i = 0; i < n; i++) {
+
         printf("\nData Karyawan %d\n", i + 1);
+
         printf("Nama   : ");
         scanf("%s", data[i].nama);
+
         printf("Gender (L/P): ");
         scanf(" %c", &data[i].gender);
+
         printf("Gaji   : ");
         scanf("%d", &data[i].gaji);
     }
@@ -133,7 +140,7 @@ int main() {
     if(jumlahP > 0)
         rataP = (float) totalP / jumlahP;
 
-    // Menampilkan hasil analisis dan membandingkan rata-rata gaji untuk kesimpulan
+     // Menampilkan hasil analisis dan membandingkan rata-rata gaji untuk kesimpulan
     printf("\n===== HASIL ANALISIS =====\n");
 
     printf("Rata-rata gaji laki-laki   : ");
@@ -146,32 +153,32 @@ int main() {
 
     float selisihPersen = 0;
 
-    if(rataL > rataP && rataL != 0) {
+if(rataL > rataP && rataL != 0) {
 
-        selisihPersen = ((rataL - rataP) / rataL) * 100;
+    selisihPersen = ((rataL - rataP) / rataL) * 100;
 
-        printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
-        printf("Perempuan menerima rata-rata %.2f%% lebih rendah dari laki-laki.\n",
-            selisihPersen);
+    printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
+    printf("Perempuan menerima rata-rata %.2f%% lebih rendah dari laki-laki.\n",
+           selisihPersen);
 
-        printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
-    }
-    else if(rataP > rataL && rataP != 0) {
+    printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
+}
+else if(rataP > rataL && rataP != 0) {
 
-        selisihPersen = ((rataP - rataL) / rataP) * 100;
+    selisihPersen = ((rataP - rataL) / rataP) * 100;
 
-        printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
-        printf("Laki-laki menerima rata-rata %.2f%% lebih rendah dari perempuan.\n",
-            selisihPersen);
+    printf("Persentase kesenjangan gaji : %.2f%%\n", selisihPersen);
+    printf("Laki-laki menerima rata-rata %.2f%% lebih rendah dari perempuan.\n",
+           selisihPersen);
 
-        printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
-    }
-    else {
+    printf("Kesimpulan: Terdapat kesenjangan gaji berdasarkan gender.\n");
+}
+else {
 
-        printf("Persentase kesenjangan gaji : 0.00%%\n");
-        printf("Tidak terdapat kesenjangan gaji antara laki-laki dan perempuan.\n");
-        printf("Kesimpulan: Sistem menunjukkan adanya kesetaraan gaji berdasarkan data yang dimasukkan.\n");
-    }
+    printf("Persentase kesenjangan gaji : 0.00%%\n");
+    printf("Tidak terdapat kesenjangan gaji antara laki-laki dan perempuan.\n");
+    printf("Kesimpulan: Sistem menunjukkan adanya kesetaraan gaji berdasarkan data yang dimasukkan.\n");
+}
 
     if(rataL > rataP)
         printf("Kesimpulan: Rata-rata gaji laki-laki lebih tinggi.\n");
@@ -184,24 +191,26 @@ int main() {
     // Memanggil fungsi Selection Sort untuk mengurutkan data dari gaji terkecil ke terbesar
     // proses pengurutan data (sorting)
     selectionSort(data, n);
+
     printf("\n=========================================\n");
     printf("       DATA KARYAWAN TERURUT\n");
     printf("=========================================\n");
 
-    printf("%-4s %-10s %-8s %s\n","No", "Nama", "Gender", "Gaji");
+    printf("%-4s %-10s %-8s %s\n",
+        "No", "Nama", "Gender", "Gaji");
 
      printf("-----------------------------------------\n");
 
     for(i = 0; i < n; i++) {
 
-        printf("%-4d %-10s %-8c ",
-        i + 1,
-        data[i].nama,
-        data[i].gender);
+         printf("%-4d %-10s %-8c ",
+            i + 1,
+            data[i].nama,
+            data[i].gender);
 
-        tampilRupiah(data[i].gaji);
-        printf("\n");
-    }
+            tampilRupiah(data[i].gaji);
+            printf("\n");
+}
     // pencarian berdasarkan nama (Linear Search)
     char namaCari[50];
 
@@ -213,6 +222,7 @@ int main() {
     if(posisiNama != -1) {
 
         printf("\nData ditemukan:\n");
+
         printf("Nama   : %s\n",
             data[posisiNama].nama);
 
@@ -224,11 +234,11 @@ int main() {
         printf("\n");
     }
     else {
-        printf("Data tidak ditemukan.\n");
-    }
-}
 
-//pencarian berdasarkan gaji (Binary Search) 
+    printf("Data tidak ditemukan.\n");
+    }
+
+    //pencarian berdasarkan gaji (Binary Search) 
     int gajiCari;
 
     printf("\nMasukkan gaji yang dicari: ");
@@ -236,7 +246,7 @@ int main() {
 
     int posisiGaji = binarySearch(data, n, gajiCari);
 
-// Memanggil fungsi binarySearch. Bisa digunakan karena data sudah diurutkan oleh Selection Sort sebelumnya
+    // Memanggil fungsi binarySearch. Bisa digunakan karena data sudah diurutkan oleh Selection Sort sebelumnya
     if(posisiGaji != -1) {
 
         printf("\nData ditemukan:\n");
