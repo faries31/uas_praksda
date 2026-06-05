@@ -16,6 +16,8 @@
 3. **Format Rupiah Realistis:** Mengonversi data integer mentah menjadi format mata uang Rupiah yang rapi (misal: `Rp2.500.000`).
 
 ---
+Rumus Persentase Kesenjangan Gaji
+Kesenjangan (%)=Rata-rata Gaji Tertinggi−Rata-rata Gaji TerendahRata-rata Gaji Tertinggi×100%\text{Kesenjangan (\%)} = \frac{\text{Rata-rata Gaji Tertinggi} - \text{Rata-rata Gaji Terendah}}{\text{Rata-rata Gaji Tertinggi}} \times 100\%Kesenjangan (%)=Rata-rata Gaji TertinggiRata-rata Gaji Tertinggi−Rata-rata Gaji Terendah​×100%
 
 
 
