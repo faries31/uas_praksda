@@ -227,3 +227,12 @@ int main() {
         printf("Data tidak ditemukan.\n");
     }
 }
+
+//pencarian berdasarkan gaji (Binary Search) 
+    int gajiCari;
+
+    printf("\nMasukkan gaji yang dicari: ");
+    scanf("%d", &gajiCari);
+
+    int posisiGaji = binarySearch(data, n, gajiCari);
+
