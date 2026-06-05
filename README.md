@@ -26,6 +26,12 @@ $$
 
 > Penyebut selalu menggunakan **rata-rata gender yang lebih tinggi**, sehingga hasil persentase
 > merepresentasikan seberapa jauh gender dengan gaji lebih rendah tertinggal dari yang tertinggi.
+> 
+> // Jika rata-rata laki-laki lebih tinggi:
+selisihPersen = ((rataL - rataP) / rataL) * 100;
+
+// Jika rata-rata perempuan lebih tinggi:
+selisihPersen = ((rataP - rataL) / rataP) * 100;
 
 
 
