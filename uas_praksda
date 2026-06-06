@@ -82,7 +82,7 @@ int main() {
 
     int n, i;
     
-    // 1. input jumlah karyawan dan validasi
+    // input jumlah karyawan dan validasi
     // Loop ini akan terus berjalan jika user memasukkan angka kurang dari 1 atau lebih dari 50
     do {
 
